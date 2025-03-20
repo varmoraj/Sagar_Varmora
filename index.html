@@ -72,13 +72,26 @@
         }
         
         .bio-info {
-            text-align: left;
+            text-align: center;
             margin-top: 20px;
         }
         
-        .bio-info p {
-            margin: 10px 0;
-            font-size: 18px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #f8f8f8;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #333;
+            color: white;
         }
         
         .social-links a {
@@ -130,7 +143,6 @@
         
         <ul class="menu">
             <li><a href="#about">About Me</a></li>
-            <li><a href="#social">Social Link</a></li>
             <li><a href="#work">Work Place</a></li>
         </ul>
     </nav>
@@ -139,10 +151,28 @@
         <div class="photo"></div>
         <h2>Sagar Varmora</h2>
         <div class="bio-info">
-            <p><strong>Date of Birth:</strong> 17th July 1992</p>
-            <p><strong>Father's Name:</strong> Harjivan Bhai Chaturbhai Varmora</p>
-            <p><strong>Native Place:</strong> Sara</p>
-            <p><strong>Property:</strong> 1 Home Mahendranagar</p>
+            <table>
+                <tr>
+                    <th>Detail</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>17th July 1992</td>
+                </tr>
+                <tr>
+                    <td>Father's Name</td>
+                    <td>Harjivan Bhai Chaturbhai Varmora</td>
+                </tr>
+                <tr>
+                    <td>Native Place</td>
+                    <td>Sara</td>
+                </tr>
+                <tr>
+                    <td>Property</td>
+                    <td>1 Home Mahendranagar</td>
+                </tr>
+            </table>
         </div>
     </div>
     
