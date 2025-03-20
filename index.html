@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar</title>
+    <title>Sagar Varmora - Bio Data</title>
     <style>
         * {
             margin: 0;
@@ -56,6 +56,44 @@
             display: none;
         }
         
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: gray;
+            margin: 20px auto;
+        }
+        
+        .bio-info {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .bio-info p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        .social-links a {
+            display: block;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ffcc00;
+        }
+        
         @media (max-width: 768px) {
             .menu {
                 display: none;
@@ -91,11 +129,30 @@
         <label for="menu-checkbox" class="menu-toggle">☰</label>
         
         <ul class="menu">
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Social Link</a></li>
-            <li><a href="#">Work Place</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#social">Social Link</a></li>
+            <li><a href="#work">Work Place</a></li>
         </ul>
     </nav>
+    
+    <div class="container">
+        <div class="photo"></div>
+        <h2>Sagar Varmora</h2>
+        <div class="bio-info">
+            <p><strong>Date of Birth:</strong> 17th July 1992</p>
+            <p><strong>Father's Name:</strong> Harjivan Bhai Chaturbhai Varmora</p>
+            <p><strong>Native Place:</strong> Sara</p>
+            <p><strong>Property:</strong> 1 Home Mahendranagar</p>
+        </div>
+    </div>
+    
+    <div class="container" id="social">
+        <h2>Social Links</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/varmoraj" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/varmoraj" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/varmoraj" target="_blank">LinkedIn</a>
+        </div>
+    </div>
 </body>
 </html>
-
