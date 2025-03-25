@@ -4,18 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Varmora - Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --info-color: #1abc9c;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;    
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
         body {
             background-color: #f8f9fa;
-            padding-top: 70px;
-            color: #333;
+            padding-top: 80px;
+            color: var(--text-color);
             line-height: 1.6;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
         }
         
         /* Navbar Styles */
@@ -23,41 +41,95 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1a2a3a 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 0 30px;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            height: 80px;
         }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        
         .navbar h1 {
             font-size: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
+            margin-right: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--info-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+        
+        .nav-link:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         /* Language Selector */
         .language-select {
-            background-color: #f8f9fa;
-            color: #2c3e50;
+            background-color: var(--light-color);
+            color: var(--dark-color);
             border: none;
             padding: 10px 15px;
             font-size: 16px;
             font-weight: 600;
             border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
+            margin-left: 20px;
+            border: 2px solid var(--primary-color);
         }
+        
         .language-select:hover {
-            background-color: #e9ecef;
+            background-color: var(--primary-color);
+            color: white;
         }
+        
         .language-select:focus {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(44,62,80,0.2);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
         }
         
         /* Main Layout */
@@ -75,100 +147,225 @@
             min-width: 300px;
             max-width: 350px;
             position: sticky;
-            top: 90px;
+            top: 100px;
             align-self: flex-start;
             margin-right: 30px;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #e0e0e0;
+            background: linear-gradient(to bottom right, white, #f0f8ff);
         }
+        
+        .photo-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 350px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
         .photo-section img {
             width: 100%;
-            border-radius: 8px;
-            border: 3px solid #eaeaea;
-            transition: transform 0.3s;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
+        
         .photo-section img:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
+        
         .thumbnails {
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;
+            margin-top: 20px;
         }
+        
         .thumbnails img {
             width: 80px;
             height: 80px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             border: 2px solid #ddd;
-            transition: all 0.3s;
-        }
-        .thumbnails img:hover {
-            border-color: #2c3e50;
-            transform: translateY(-3px);
+            transition: var(--transition);
         }
         
-        /* Tables Section */
+        .thumbnails img:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        /* Details Section */
         .details {
             flex: 2;
             min-width: 300px;
         }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--primary-color), var(--info-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         table {
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-collapse: collapse;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
         }
+        
         table:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
+        
         th, td {
             border: 1px solid #e0e0e0;
-            padding: 15px;
+            padding: 18px;
             text-align: left;
         }
+        
         th {
-            background-color: #34495e;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
             color: white;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             font-size: 16px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
+        
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
+        
         tr:hover {
             background-color: #f1f5f9;
         }
         
+        td:first-child {
+            font-weight: 600;
+            color: var(--secondary-color);
+            width: 30%;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+            color: white;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+        }
+        
+        .badge-primary {
+            background: linear-gradient(to right, var(--primary-color), #2980b9);
+        }
+        
+        .badge-secondary {
+            background: linear-gradient(to right, var(--secondary-color), #34495e);
+        }
+        
+        .badge-success {
+            background: linear-gradient(to right, var(--success-color), #27ae60);
+        }
+        
+        .badge-warning {
+            background: linear-gradient(to right, var(--warning-color), #d35400);
+        }
+        
+        .badge-info {
+            background: linear-gradient(to right, var(--info-color), #16a085);
+        }
+        
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            
+            .navbar-brand {
+                margin-bottom: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                margin: 5px;
+            }
+            
+            .language-select {
+                margin: 15px 0 0 0;
+            }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                padding: 15px;
+                padding: 20px;
             }
+            
             .photo-section {
                 position: static;
                 max-width: 100%;
                 margin-right: 0;
                 margin-bottom: 30px;
             }
+            
             .details {
                 width: 100%;
             }
-            .navbar {
-                padding: 15px;
-            }
+            
             .navbar h1 {
                 font-size: 20px;
+            }
+            
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 14px;
             }
         }
         
@@ -177,18 +374,64 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        table {
-            animation: fadeIn 0.5s ease-out forwards;
+        
+        .photo-section, table {
+            animation: fadeIn 0.6s ease-out forwards;
         }
-        table:nth-child(1) { animation-delay: 0.1s; }
-        table:nth-child(2) { animation-delay: 0.2s; }
-        table:nth-child(3) { animation-delay: 0.3s; }
-        table:nth-child(4) { animation-delay: 0.4s; }
+        
+        .photo-section { animation-delay: 0.1s; }
+        table:nth-child(1) { animation-delay: 0.2s; }
+        table:nth-child(2) { animation-delay: 0.3s; }
+        table:nth-child(3) { animation-delay: 0.4s; }
+        table:nth-child(4) { animation-delay: 0.5s; }
+        table:nth-child(5) { animation-delay: 0.6s; }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--primary-color), var(--info-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <h1>Sagar Varmora</h1>
+        <div class="navbar-brand">
+            <h1>Sagar Varmora</h1>
+        </div>
+        
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item"><a href="#personal" class="nav-link active"><i class="fas fa-user"></i> <span class="menu-text">Personal</span></a></li>
+            <li class="nav-item"><a href="#family" class="nav-link"><i class="fas fa-users"></i> <span class="menu-text">Family</span></a></li>
+            <li class="nav-item"><a href="#business" class="nav-link"><i class="fas fa-briefcase"></i> <span class="menu-text">Business</span></a></li>
+            <li class="nav-item"><a href="#properties" class="nav-link"><i class="fas fa-home"></i> <span class="menu-text">Properties</span></a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-phone"></i> <span class="menu-text">Contact</span></a></li>
+        </ul>
+        
         <select class="language-select" id="languageSelect" onchange="changeLanguage()">
             <option value="english">English</option>
             <option value="gujarati">ગુજરાતી</option>
@@ -198,7 +441,9 @@
     <div class="container">
         <!-- Photo Section -->
         <div class="photo-section">
-            <img id="mainPhoto" src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar3.jpg" alt="Sagar Varmora">
+            <div class="profile-img-container">
+                <img id="mainPhoto" src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar3.jpg" alt="Sagar Varmora">
+            </div>
             <div class="thumbnails">
                 <img src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar3.jpg" onclick="changePhoto(this)" alt="Profile 1">
                 <img src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar.jpg" onclick="changePhoto(this)" alt="Business 1">
@@ -208,9 +453,9 @@
         
         <!-- Details Section -->
         <div class="details" id="detailsSection">
-            <!-- English Content (Default) -->
+            <!-- Personal Details -->
+            <h2 class="section-title" id="personal">Personal Details</h2>
             <table>
-                <tr><th colspan="2">Personal Details</th></tr>
                 <tr><td width="30%">Full Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
                 <tr><td>Date of Birth</td><td>22<sup>nd</sup> May, 1995 (22/05/1995)</td></tr>
                 <tr><td>Place of Birth</td><td>Sara, Gujarat</td></tr>
@@ -219,39 +464,47 @@
                 <tr><td>Maternal</td><td>Jasapara (Khakhrechi)</td></tr>
             </table>
 
+            <!-- Family Details -->
+            <h2 class="section-title" id="family">Family Details</h2>
             <table>
-                <tr><th colspan="2">Family Details</th></tr>
                 <tr><td>Father</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
                 <tr><td>Mother</td><td>Shardaben Harjivanbhai Varmora</td></tr>
                 <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora (Divorced)</td></tr>
-<tr><td>Father’s Maternal </td><td>Kasundra (Lunsar)</td></tr>
-<tr><td>Mother’s Maternal </td><td>Vidja (Juna Ghatila)</td></tr>
+                <tr><td>Father's Maternal</td><td>Kasundra (Lunsar)</td></tr>
+                <tr><td>Mother's Maternal</td><td>Vidja (Juna Ghatila)</td></tr>
                 <tr><td>Native Place</td><td>Sara, Taluka: Muli, Dist: Surendranagar</td></tr>
                 <tr><td>Current Residence</td><td>Mahendranagar, Morbi</td></tr>
             </table>
 
+            <!-- Business Ventures -->
+            <h2 class="section-title" id="business">Business Ventures</h2>
             <table>
-                <tr><th colspan="2">Business Ventures</th></tr>
-                <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi</td></tr>
-                <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi</td></tr>
-                <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi</td></tr>
+                <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi <span class="badge badge-primary">Retail</span></td></tr>
+                <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi <span class="badge badge-warning">Food</span></td></tr>
+                <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi <span class="badge badge-success">Food</span></td></tr>
             </table>
 
-<table>
-                <tr><th colspan="2">Properties Details</th></tr>
-                <tr><td>Land</td><td>30 Vigha at Sara</td></tr>
-                <tr><td>House</td><td> 1 House at Mahendranagar, Morbi</td></tr>
-                <tr><td>Flat</td><td> 1 Flat 2-BHK at Kranti Jyot, Mahendranagar, Morbi</td></tr>
-                <tr><td>Shop</td><td>1 Shop at Dhuva - (Shumangal Marketing), Morbi</td></tr>
+            <!-- Properties Details -->
+            <h2 class="section-title" id="properties">Properties Details</h2>
+            <table>
+                <tr><td>Land</td><td>30 Vigha at Sara <span class="badge badge-info">Agricultural</span></td></tr>
+                <tr><td>House</td><td>1 House at Mahendranagar, Morbi <span class="badge badge-secondary">Residential</span></td></tr>
+                <tr><td>Flat</td><td>1 Flat 2-BHK at Kranti Jyot, Mahendranagar, Morbi <span class="badge badge-secondary">Residential</span></td></tr>
+                <tr><td>Shop</td><td>1 Shop at Dhuva - (Shumangal Marketing), Morbi <span class="badge badge-primary">Commercial</span></td></tr>
             </table>
 
-            
+            <!-- Contact Information -->
+            <h2 class="section-title" id="contact">Contact Information</h2>
             <table>
-                <tr><th colspan="2">Contact Information</th></tr>
                 <tr><td>Harjivanbhai Varmora (Father)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
                 <tr><td>Dipeshbhai Varmora (Brother)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
             </table>
         </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
     <script>
@@ -263,65 +516,74 @@
             // Add active class to clicked thumbnail
             const thumbnails = document.querySelectorAll('.thumbnails img');
             thumbnails.forEach(thumb => thumb.style.borderColor = '#ddd');
-            img.style.borderColor = '#2c3e50';
+            img.style.borderColor = '#3498db';
         }
         
         // Language switcher
         function changeLanguage() {
             var language = document.getElementById("languageSelect").value;
             var details = document.getElementById("detailsSection");
+            var navMenu = document.getElementById("navMenu");
 
             if (language === "gujarati") {
+                // Update content
                 details.innerHTML = `
+                    <h2 class="section-title" id="personal">વ્યક્તિગત વિગતો</h2>
                     <table>
-                        <tr><th colspan="2">વ્યક્તિગત વિગતો</th></tr>
                         <tr><td width="30%">પૂરું નામ</td><td>સાગર હરજીવનભાઈ વરમોરા</td></tr>
                         <tr><td>જન્મ તારીખ</td><td>22 મી મે, 1995 (22/05/1995)</td></tr>
-                        <tr><td>જન્મ સ્થળ</td><td>સરા</td></tr>
+                        <tr><td>જન્મ સ્થળ</td><td>સરા, ગુજરાત</td></tr>
                         <tr><td>ઊંચાઈ</td><td>5 ફૂટ 9 ઇંચ</td></tr>
                         <tr><td>શિક્ષણ</td><td>હાયર સેકન્ડરી (12મી પાસ)</td></tr>
                         <tr><td>મોસાળ</td><td>જસાપરા (ખાખરેચી)</td></tr>
                     </table>
 
+                    <h2 class="section-title" id="family">કુટુંબની વિગતો</h2>
                     <table>
-                        <tr><th colspan="2">કુટુંબની વિગતો</th></tr>
                         <tr><td>પિતા</td><td>હરજીવનભાઈ ચતુરભાઈ વરમોરા</td></tr>
                         <tr><td>માતા</td><td>શારદાબેન હરજીવનભાઈ વરમોરા</td></tr>
-<tr><td>પિતા નુ મોસાળ</td><td>કાસુન્દ્રા (લુણસર) </td></tr>
-<tr><td>માતા નુ મોસાળ</td><td>વિડજા (જુના ઘાટીલાં)</td></tr>
                         <tr><td>ભાઈઓ</td><td>દિપેશ વરમોરા (પરિણીત), રાહુલ વરમોરા (છૂટાછેડા)</td></tr>
+                        <tr><td>પિતા નુ મોસાળ</td><td>કાસુન્દ્રા (લુણસર)</td></tr>
+                        <tr><td>માતા નુ મોસાળ</td><td>વિડજા (જુના ઘાટીલાં)</td></tr>
                         <tr><td>મૂળ વતન</td><td>સરા, તાલુકા: મુળી, જિલ્લો: સુરેન્દ્રનગર</td></tr>
                         <tr><td>વર્તમાન નિવાસ</td><td>મહેન્દ્રનગર, મોરબી</td></tr>
                     </table>
 
+                    <h2 class="section-title" id="business">વ્યવસાયિક પ્રવૃત્તિઓ</h2>
                     <table>
-                        <tr><th colspan="2">વ્યવસાયિક પ્રવૃત્તિઓ</th></tr>
-                        <tr><td>શુમંગલ માર્કેટિંગ</td><td>ઢુવા, મોરબી</td></tr>
-                        <tr><td>વિલિયમ જોન્સ પિઝા</td><td>મહેન્દ્રનગર, મોરબી</td></tr>
-                        <tr><td>શ્રી ઉમિયા નોવેલ્ટી પરોઠા હાઉસ</td><td>મહેન્દ્રનગર અને ઢુવા, મોરબી</td></tr>
+                        <tr><td>શુમંગલ માર્કેટિંગ</td><td>ઢુવા, મોરબી <span class="badge badge-primary">રીટેલ</span></td></tr>
+                        <tr><td>વિલિયમ જોન્સ પિઝા</td><td>મહેન્દ્રનગર, મોરબી <span class="badge badge-warning">ફૂડ</span></td></tr>
+                        <tr><td>શ્રી ઉમિયા નોવેલ્ટી પરોઠા હાઉસ</td><td>મહેન્દ્રનગર અને ઢુવા, મોરબી <span class="badge badge-success">ફૂડ</span></td></tr>
                     </table>
 
-
- <table>
-<tr><th colspan="2">મિલકતની વિગતો</th></tr>
-<tr><td>જમીન</td><td>30 વીઘા જમીન - સરા </td></tr>
-<tr><td>ઘર</td><td>1 - મકાન મહેન્દ્રનગર મોરબી </td></tr>
-<tr><td>ફ્લેટ</td><td>1 - 2.BHK ફ્લેટ ક્રાંતિ જ્યોતમાં - 1,  મહેન્દ્રનગર, મોરબી </td></tr>
-<tr><td>દુકાન</td><td>1 - દુકાન ઢુવા, મોરબી - (શુમંગલ માર્કેટિંગ)</td></tr>
-  </table>
-
-
+                    <h2 class="section-title" id="properties">મિલકતની વિગતો</h2>
                     <table>
-                        <tr><th colspan="2">સંપર્ક માહિતી</th></tr>
+                        <tr><td>જમીન</td><td>30 વીઘા જમીન - સરા <span class="badge badge-info">કૃષિ</span></td></tr>
+                        <tr><td>ઘર</td><td>1 - મકાન મહેન્દ્રનગર મોરબી <span class="badge badge-secondary">રહેણાંક</span></td></tr>
+                        <tr><td>ફ્લેટ</td><td>1 - 2.BHK ફ્લેટ ક્રાંતિ જ્યોતમાં - 1, મહેન્દ્રનગર, મોરબી <span class="badge badge-secondary">રહેણાંક</span></td></tr>
+                        <tr><td>દુકાન</td><td>1 - દુકાન ઢુવા, મોરબી - (શુમંગલ માર્કેટિંગ) <span class="badge badge-primary">વ્યાપાર</span></td></tr>
+                    </table>
+
+                    <h2 class="section-title" id="contact">સંપર્ક માહિતી</h2>
+                    <table>
                         <tr><td>હરજીવનભાઈ વરમોરા (પિતા)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
                         <tr><td>દિપેશભાઈ વરમોરા (ભાઈ)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
                     </table>
                 `;
+                
+                // Update menu items
+                const menuItems = document.querySelectorAll('.menu-text');
+                menuItems[0].textContent = 'વ્યક્તિગત';
+                menuItems[1].textContent = 'કુટુંબ';
+                menuItems[2].textContent = 'વ્યવસાય';
+                menuItems[3].textContent = 'મિલકત';
+                menuItems[4].textContent = 'સંપર્ક';
+                
             } else {
-                // Reload to English version
+                // Update content
                 details.innerHTML = `
+                    <h2 class="section-title" id="personal">Personal Details</h2>
                     <table>
-                        <tr><th colspan="2">Personal Details</th></tr>
                         <tr><td width="30%">Full Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
                         <tr><td>Date of Birth</td><td>22<sup>nd</sup> May, 1995 (22/05/1995)</td></tr>
                         <tr><td>Place of Birth</td><td>Sara, Gujarat</td></tr>
@@ -330,39 +592,132 @@
                         <tr><td>Maternal</td><td>Jasapara (Khakhrechi)</td></tr>
                     </table>
 
+                    <h2 class="section-title" id="family">Family Details</h2>
                     <table>
-                        <tr><th colspan="2">Family Details</th></tr>
                         <tr><td>Father</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
                         <tr><td>Mother</td><td>Shardaben Harjivanbhai Varmora</td></tr>
                         <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora (Divorced)</td></tr>
+                        <tr><td>Father's Maternal</td><td>Kasundra (Lunsar)</td></tr>
+                        <tr><td>Mother's Maternal</td><td>Vidja (Juna Ghatila)</td></tr>
                         <tr><td>Native Place</td><td>Sara, Taluka: Muli, Dist: Surendranagar</td></tr>
                         <tr><td>Current Residence</td><td>Mahendranagar, Morbi</td></tr>
                     </table>
 
+                    <h2 class="section-title" id="business">Business Ventures</h2>
                     <table>
-                        <tr><th colspan="2">Business Ventures</th></tr>
-                        <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi</td></tr>
-                        <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi</td></tr>
-                        <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi</td></tr>
+                        <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi <span class="badge badge-primary">Retail</span></td></tr>
+                        <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi <span class="badge badge-warning">Food</span></td></tr>
+                        <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi <span class="badge badge-success">Food</span></td></tr>
                     </table>
 
+                    <h2 class="section-title" id="properties">Properties Details</h2>
                     <table>
-                        <tr><th colspan="2">Contact Information</th></tr>
+                        <tr><td>Land</td><td>30 Vigha at Sara <span class="badge badge-info">Agricultural</span></td></tr>
+                        <tr><td>House</td><td>1 House at Mahendranagar, Morbi <span class="badge badge-secondary">Residential</span></td></tr>
+                        <tr><td>Flat</td><td>1 Flat 2-BHK at Kranti Jyot, Mahendranagar, Morbi <span class="badge badge-secondary">Residential</span></td></tr>
+                        <tr><td>Shop</td><td>1 Shop at Dhuva - (Shumangal Marketing), Morbi <span class="badge badge-primary">Commercial</span></td></tr>
+                    </table>
+
+                    <h2 class="section-title" id="contact">Contact Information</h2>
+                    <table>
                         <tr><td>Harjivanbhai Varmora (Father)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
                         <tr><td>Dipeshbhai Varmora (Brother)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
                     </table>
                 `;
+                
+                // Update menu items
+                const menuItems = document.querySelectorAll('.menu-text');
+                menuItems[0].textContent = 'Personal';
+                menuItems[1].textContent = 'Family';
+                menuItems[2].textContent = 'Business';
+                menuItems[3].textContent = 'Properties';
+                menuItems[4].textContent = 'Contact';
             }
+            
+            // Reattach event listeners after language change
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', smoothScroll);
+            });
         }
         
-        // Make phone numbers clickable
+        // Smooth scrolling for navigation
+        function smoothScroll(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+        
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Highlight active section in navbar
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('h2.section-title');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                
+                if (window.pageYOffset >= (sectionTop - navbarHeight - 50)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scroll to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', smoothScroll);
+            });
+            
+            // Make phone numbers clickable
             const phoneNumbers = document.querySelectorAll('td a[href^="tel"]');
             phoneNumbers.forEach(num => {
                 num.addEventListener('click', function(e) {
                     e.stopPropagation();
                 });
             });
+            
+            // Set first thumbnail as active
+            document.querySelector('.thumbnails img').style.borderColor = '#3498db';
         });
     </script>
 </body>
