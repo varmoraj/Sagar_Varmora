@@ -9,105 +9,181 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;    
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f4f4;
-            padding-top: 60px;
+            background-color: #f8f9fa;
+            padding-top: 70px;
+            color: #333;
+            line-height: 1.6;
         }
+        
         /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #2c3e50;
             color: white;
-            padding: 15px;
+            padding: 15px 30px;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .navbar h1 {
-            font-size: 22px;
+            font-size: 24px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
-        /* Language Button */
+        
+        /* Language Selector */
         .language-select {
-            background-color: white;
-            color: black;
+            background-color: #f8f9fa;
+            color: #2c3e50;
             border: none;
-            padding: 12px 18px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
             cursor: pointer;
+            transition: all 0.3s;
         }
+        .language-select:hover {
+            background-color: #e9ecef;
+        }
+        .language-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(44,62,80,0.2);
+        }
+        
         /* Main Layout */
         .container {
             display: flex;
             flex-wrap: wrap;
-            padding: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        
         /* Photo Section */
         .photo-section {
             flex: 1;
-            max-width: 300px;
+            min-width: 300px;
+            max-width: 350px;
             position: sticky;
-            top: 80px;
+            top: 90px;
+            align-self: flex-start;
+            margin-right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .photo-section img {
             width: 100%;
-            border-radius: 10px;
-            border: 2px solid #333;
+            border-radius: 8px;
+            border: 3px solid #eaeaea;
+            transition: transform 0.3s;
+        }
+        .photo-section img:hover {
+            transform: scale(1.02);
         }
         .thumbnails {
             display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
+            justify-content: space-between;
+            margin-top: 15px;
         }
         .thumbnails img {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 5px;
             cursor: pointer;
-            border: 2px solid #777;
+            border: 2px solid #ddd;
+            transition: all 0.3s;
         }
         .thumbnails img:hover {
-            border-color: #333;
+            border-color: #2c3e50;
+            transform: translateY(-3px);
         }
+        
         /* Tables Section */
         .details {
             flex: 2;
-            margin-left: 20px;
+            min-width: 300px;
         }
         table {
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-collapse: collapse;
             background: white;
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        table:hover {
+            transform: translateY(-3px);
         }
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
             text-align: left;
         }
         th {
-            background-color: #444;
+            background-color: #34495e;
             color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 16px;
         }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                align-items: center;
+                padding: 15px;
+            }
+            .photo-section {
+                position: static;
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
             }
             .details {
-                margin-left: 0;
+                width: 100%;
+            }
+            .navbar {
+                padding: 15px;
+            }
+            .navbar h1 {
+                font-size: 20px;
             }
         }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        table {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        table:nth-child(1) { animation-delay: 0.1s; }
+        table:nth-child(2) { animation-delay: 0.2s; }
+        table:nth-child(3) { animation-delay: 0.3s; }
+        table:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -124,9 +200,9 @@
         <div class="photo-section">
             <img id="mainPhoto" src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar.jpg" alt="Sagar Varmora">
             <div class="thumbnails">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt94_5SLNM6r_Qy7TqcgosaboRKue0YXAUJQ&s" onclick="changePhoto(this)">
-                <img src="https://d2gjqh9j26unp0.cloudfront.net/profilepic/2eaa19b8653c6f1423aa87fb0f2b600d" onclick="changePhoto(this)">
-                <img src="https://images.jdmagicbox.com/quickquotes/images_main/varmora-sanitaryware-19-05-2021-1441-226883708-cvbay.jpg" onclick="changePhoto(this)">
+                <img src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar.jpg" onclick="changePhoto(this)" alt="Profile 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt94_5SLNM6r_Qy7TqcgosaboRKue0YXAUJQ&s" onclick="changePhoto(this)" alt="Business 1">
+                <img src="https://images.jdmagicbox.com/quickquotes/images_main/varmora-sanitaryware-19-05-2021-1441-226883708-cvbay.jpg" onclick="changePhoto(this)" alt="Business 2">
             </div>
         </div>
         
@@ -135,40 +211,53 @@
             <!-- English Content (Default) -->
             <table>
                 <tr><th colspan="2">Personal Details</th></tr>
-                <tr><td>Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
-                <tr><td>Date of Birth</td><td>22 / 05 / 1995</td></tr>
-                <tr><td>Place of Birth</td><td>Sara</td></tr>
-                <tr><td>Height</td><td>5 Feet 9 Inch</td></tr>
-                <tr><td>Education</td><td>12 Pass</td></tr>
+                <tr><td width="30%">Full Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
+                <tr><td>Date of Birth</td><td>22<sup>nd</sup> May, 1995 (22/05/1995)</td></tr>
+                <tr><td>Place of Birth</td><td>Sara, Gujarat</td></tr>
+                <tr><td>Height</td><td>5 Feet 9 Inches</td></tr>
+                <tr><td>Education</td><td>Higher Secondary (12<sup>th</sup> Pass)</td></tr>
+                <tr><td>Maternal</td><td>Jasapara (Khakhrechi)</td></tr>
             </table>
 
             <table>
                 <tr><th colspan="2">Family Details</th></tr>
                 <tr><td>Father</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
                 <tr><td>Mother</td><td>Shardaben Harjivanbhai Varmora</td></tr>
-                <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora(Divorce)</td></tr>
+                <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora (Divorced)</td></tr>
+<tr><td>Father’s Maternal </td><td>Kasundra (Lunsar)</td></tr>
+<tr><td>Mother’s Maternal </td><td>Vidja (Juna Ghatila)</td></tr>
+                <tr><td>Native Place</td><td>Sara, Taluka: Muli, Dist: Surendranagar</td></tr>
+                <tr><td>Current Residence</td><td>Mahendranagar, Morbi</td></tr>
             </table>
 
             <table>
-                <tr><th colspan="2">Business Details</th></tr>
-                <tr><td>Shumangal Marketing</td><td>Dhuva</td></tr>
-                <tr><td>William John's Pizza</td><td>MahendraNagar</td></tr>
-                <tr><td>Shree Umiya Novelty Parotha House</td><td>MahendraNagar & Dhuva</td></tr>
+                <tr><th colspan="2">Business Ventures</th></tr>
+                <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi</td></tr>
+                <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi</td></tr>
+                <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi</td></tr>
             </table>
 
             <table>
-                <tr><th colspan="2">Contact Details</th></tr>
-                <tr><td>Harjivanbhai Varmora (Father)</td><td>98799 96376</td></tr>
-                <tr><td>Dipeshbhai Varmora (Brother)</td><td>9586 343434</td></tr>
+                <tr><th colspan="2">Contact Information</th></tr>
+                <tr><td>Harjivanbhai Varmora (Father)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
+                <tr><td>Dipeshbhai Varmora (Brother)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
             </table>
         </div>
     </div>
 
     <script>
+        // Photo switcher
         function changePhoto(img) {
             document.getElementById("mainPhoto").src = img.src;
+            document.getElementById("mainPhoto").alt = img.alt;
+            
+            // Add active class to clicked thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnails img');
+            thumbnails.forEach(thumb => thumb.style.borderColor = '#ddd');
+            img.style.borderColor = '#2c3e50';
         }
-
+        
+        // Language switcher
         function changeLanguage() {
             var language = document.getElementById("languageSelect").value;
             var details = document.getElementById("detailsSection");
@@ -177,40 +266,85 @@
                 details.innerHTML = `
                     <table>
                         <tr><th colspan="2">વ્યક્તિગત વિગતો</th></tr>
-                        <tr><td>નામ</td><td>સાગર હરજીવનભાઈ વરમોરા </td></tr>
-                        <tr><td>જન્મ તારીખ</td><td>22 / 05 / 1995</td></tr>
-                        <tr><td>જન્મ સ્થળ</td><td>સાર</td></tr>
+                        <tr><td width="30%">પૂરું નામ</td><td>સાગર હરજીવનભાઈ વરમોરા</td></tr>
+                        <tr><td>જન્મ તારીખ</td><td>22 મી મે, 1995 (22/05/1995)</td></tr>
+                        <tr><td>જન્મ સ્થળ</td><td>સાર, ગુજરાત</td></tr>
                         <tr><td>ઊંચાઈ</td><td>5 ફૂટ 9 ઇંચ</td></tr>
-                        <tr><td>શિક્ષણ</td><td>12 પાસ</td></tr>
+                        <tr><td>શિક્ષણ</td><td>હાયર સેકન્ડરી (12મી પાસ)</td></tr>
+                        <tr><td>માતૃભાષા</td><td>જસાપરા (ખાખરેચી)</td></tr>
                     </table>
 
                     <table>
                         <tr><th colspan="2">કુટુંબની વિગતો</th></tr>
-                        <tr><td>પિતા</td><td>હરજીવનભાઈ ચતુરભાઈ વરમોરા </td></tr>
-                        <tr><td>માતા</td><td>શારદાબેન હરજીવનભાઈ વરમોરા </td></tr>
+                        <tr><td>પિતા</td><td>હરજીવનભાઈ ચતુરભાઈ વરમોરા</td></tr>
+                        <tr><td>માતા</td><td>શારદાબેન હરજીવનભાઈ વરમોરા</td></tr>
+<tr><td>પિતા નુ મોસાળ</td><td>કાસુન્દ્રા (લુણસર) </td></tr>
+<tr><td>માતા નુ મોસાળ</td><td>વિડજા (જુના ઘાટીલાં)</td></tr>
                         <tr><td>ભાઈઓ</td><td>દિપેશ વરમોરા (પરિણીત), રાહુલ વરમોરા (છૂટાછેડા)</td></tr>
+                        <tr><td>મૂળ વતન</td><td>સાર, તાલુકા: મુળી, જિલ્લો: સુરેન્દ્રનગર</td></tr>
+                        <tr><td>વર્તમાન નિવાસ</td><td>મહેન્દ્રનગર, મોરબી</td></tr>
                     </table>
-                    
-                    
-                    <table>
-                <tr><th colspan="2"> વ્યવસાય વિગતો </th></tr>
-                <tr><td> શુમંગલ માર્કેટિંગ </td><td>ઢુંવા </td></tr>
-                <tr><td> વિલિયમ જોન્સ પિઝા </td><td>મહેન્દ્રનગર </td></tr>
-                <tr><td> શ્રી ઉમિયા નોવેલ્ટી પરોઠા હાઉસ </td><td>મહેન્દ્રનગર તથા ઢુંવા </td></tr>
-            </table>
 
-            <table>
-                <tr><th colspan="2"> સંપર્ક વિગતો </th></tr>
-                <tr><td> હરજીવનભાઈ વરમોરા (પિતા શ્રી)</td><td>98799 96376</td></tr>
-                <tr><td> દિપેશભાઈ વરમોરા (મોટા ભાઈ)</td><td>9586 343434</td></tr>
-            </table>
-            
-            
+                    <table>
+                        <tr><th colspan="2">વ્યવસાયિક પ્રવૃત્તિઓ</th></tr>
+                        <tr><td>શુમંગલ માર્કેટિંગ</td><td>ઢુંવા, મોરબી</td></tr>
+                        <tr><td>વિલિયમ જોન્સ પિઝા</td><td>મહેન્દ્રનગર, મોરબી</td></tr>
+                        <tr><td>શ્રી ઉમિયા નોવેલ્ટી પરોઠા હાઉસ</td><td>મહેન્દ્રનગર અને ઢુંવા, મોરબી</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><th colspan="2">સંપર્ક માહિતી</th></tr>
+                        <tr><td>હરજીવનભાઈ વરમોરા (પિતા)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
+                        <tr><td>દિપેશભાઈ વરમોરા (ભાઈ)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
+                    </table>
                 `;
             } else {
-                location.reload();
+                // Reload to English version
+                details.innerHTML = `
+                    <table>
+                        <tr><th colspan="2">Personal Details</th></tr>
+                        <tr><td width="30%">Full Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
+                        <tr><td>Date of Birth</td><td>22<sup>nd</sup> May, 1995 (22/05/1995)</td></tr>
+                        <tr><td>Place of Birth</td><td>Sara, Gujarat</td></tr>
+                        <tr><td>Height</td><td>5 Feet 9 Inches</td></tr>
+                        <tr><td>Education</td><td>Higher Secondary (12<sup>th</sup> Pass)</td></tr>
+                        <tr><td>Maternal</td><td>Jasapara (Khakhrechi)</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><th colspan="2">Family Details</th></tr>
+                        <tr><td>Father</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
+                        <tr><td>Mother</td><td>Shardaben Harjivanbhai Varmora</td></tr>
+                        <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora (Divorced)</td></tr>
+                        <tr><td>Native Place</td><td>Sara, Taluka: Muli, Dist: Surendranagar</td></tr>
+                        <tr><td>Current Residence</td><td>Mahendranagar, Morbi</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><th colspan="2">Business Ventures</th></tr>
+                        <tr><td>Shumangal Marketing</td><td>Dhuva, Morbi</td></tr>
+                        <tr><td>William John's Pizza</td><td>Mahendranagar, Morbi</td></tr>
+                        <tr><td>Shree Umiya Novelty Parotha House</td><td>Mahendranagar & Dhuva, Morbi</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><th colspan="2">Contact Information</th></tr>
+                        <tr><td>Harjivanbhai Varmora (Father)</td><td><a href="tel:9879996376">+91 98799 96376</a></td></tr>
+                        <tr><td>Dipeshbhai Varmora (Brother)</td><td><a href="tel:9586343434">+91 9586 343434</a></td></tr>
+                    </table>
+                `;
             }
         }
+        
+        // Make phone numbers clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneNumbers = document.querySelectorAll('td a[href^="tel"]');
+            phoneNumbers.forEach(num => {
+                num.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
     </script>
 </body>
 </html>
