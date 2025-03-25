@@ -3,167 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagar Varmora - Bio Data</title>
+    <title>Sagar Varmora - Bio</title>
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box;    
             font-family: Arial, sans-serif;
         }
-        
-        nav {
+        body {
+            background-color: #f4f4f4;
+            padding-top: 60px;
+        }
+        /* Navbar Styles */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #333;
-            padding: 15px 20px;
+            background-color: #333;
             color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
         }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        .navbar h1 {
+            font-size: 22px;
+            text-transform: uppercase;
         }
-        
-        .menu {
-            list-style: none;
-            display: flex;
-        }
-        
-        .menu li {
-            margin: 0 15px;
-        }
-        
-        .menu a {
-            text-decoration: none;
-            color: white;
+        /* Language Button */
+        .language-select {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 12px 18px;
             font-size: 18px;
-            transition: 0.3s;
-        }
-        
-        .menu a:hover {
-            color: #ffcc00;
-        }
-        
-        .menu-toggle {
-            display: none;
+            font-weight: bold;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 24px;
         }
-        
-        #menu-checkbox {
-            display: none;
-        }
-        
+        /* Main Layout */
         .container {
+            display: flex;
+            flex-wrap: wrap;
             padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
         }
-        
-        .photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: gray;
-            margin: 20px auto;
+        /* Photo Section */
+        .photo-section {
+            flex: 1;
+            max-width: 300px;
+            position: sticky;
+            top: 80px;
         }
-        
+        .photo-section img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+        .thumbnails {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .thumbnails img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid #777;
+        }
+        .thumbnails img:hover {
+            border-color: #333;
+        }
+        /* Tables Section */
+        .details {
+            flex: 2;
+            margin-left: 20px;
+        }
         table {
             width: 100%;
+            margin-bottom: 20px;
             border-collapse: collapse;
-            margin-top: 20px;
-            background: #f8f8f8;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
         }
-        
-        table, th, td {
+        th, td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
         }
-        
         th {
-            background: #333;
+            background-color: #444;
             color: white;
         }
-        
         @media (max-width: 768px) {
-            .menu {
-                display: none;
+            .container {
                 flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: #333;
-                text-align: center;
-                padding: 10px 0;
+                align-items: center;
             }
-            
-            .menu li {
-                margin: 10px 0;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            #menu-checkbox:checked ~ .menu {
-                display: flex;
+            .details {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">SAGAR VARMORA</div>
-        
-        <input type="checkbox" id="menu-checkbox">
-        <label for="menu-checkbox" class="menu-toggle">☰</label>
-        
-        <ul class="menu">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#work">Work Place</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <div class="photo"></div>
-        <h2>Sagar Harjivanbhai Varmora</h2>
-        <table>
-            <tr><th>Detail</th><th>Information</th></tr>
-            <tr><td>Date of Birth</td><td>22/05/1995</td></tr>
-            <tr><td>Place of Birth</td><td>Sara</td></tr>
-            <tr><td>Height</td><td>5 Feet 9 Inch</td></tr>
-            <tr><td>Education</td><td>12 Pass</td></tr>
-            <tr><td>Business</td><td>Shumangal Marketing (Dhuva), William John's Pizza (Mahendra Nagar), Shree Umiya Novelty Parotha House (Mahendranagar, Dhuva)</td></tr>
-            <tr><td>Native Place</td><td>Sara, Tal.- Muli, Dist.- Surendranagar</td></tr>
-            <tr><td>Present Address</td><td>Mahendranagar, Tal & Dist.- Morbi</td></tr>
-            <tr><td>Maternal</td><td>Jasapara (Khakhrechi)</td></tr>
-        </table>
-        
-        <h3>Contact</h3>
-        <table>
-            <tr><td>Harjivanbhai Varmora (Father)</td><td>98799 96376</td></tr>
-            <tr><td>Dipeshbhai (Brother)</td><td>95863 43434</td></tr>
-        </table>
-        
-        <h3>Family Detail</h3>
-        <table>
-            <tr><td>Father's Name</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
-            <tr><td>Mother's Name</td><td>Shardaben Harjivanbhai Varmora</td></tr>
-            <tr><td>Father's Maternal</td><td>Kasundra (Lunsar)</td></tr>
-            <tr><td>Mother's Maternal</td><td>Vidja (Juna Ghatila)</td></tr>
-            <tr><td>Brother</td><td>01 - Married, 01 - Divorce</td></tr>
-        </table>
-        
-        <h3>Properties</h3>
-        <table>
-            <tr><td>Land</td><td>30 Vigha at Sara</td></tr>
-            <tr><td>Properties</td><td>01 Flat 2BHK at Kranti Jyot, Mahendranagar<br>01 House at Mahendranagar, Morbi<br>01 Shop at Dhuva - (Shumangal Marketing)</td></tr>
-        </table>
+    <div class="navbar">
+        <h1>Sagar Varmora</h1>
+        <select class="language-select" id="languageSelect" onchange="changeLanguage()">
+            <option value="english">English</option>
+            <option value="gujarati">ગુજરાતી</option>
+        </select>
     </div>
+
+    <div class="container">
+        <!-- Photo Section -->
+        <div class="photo-section">
+            <img id="mainPhoto" src="https://raw.githubusercontent.com/varmoraj/Sagar_Varmora/main/sagar.jpg" alt="Sagar Varmora">
+            <div class="thumbnails">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt94_5SLNM6r_Qy7TqcgosaboRKue0YXAUJQ&s" onclick="changePhoto(this)">
+                <img src="https://d2gjqh9j26unp0.cloudfront.net/profilepic/2eaa19b8653c6f1423aa87fb0f2b600d" onclick="changePhoto(this)">
+                <img src="https://images.jdmagicbox.com/quickquotes/images_main/varmora-sanitaryware-19-05-2021-1441-226883708-cvbay.jpg" onclick="changePhoto(this)">
+            </div>
+        </div>
+        
+        <!-- Details Section -->
+        <div class="details" id="detailsSection">
+            <!-- English Content (Default) -->
+            <table>
+                <tr><th colspan="2">Personal Details</th></tr>
+                <tr><td>Name</td><td>Sagar Harjivanbhai Varmora</td></tr>
+                <tr><td>Date of Birth</td><td>22 / 05 / 1995</td></tr>
+                <tr><td>Place of Birth</td><td>Sara</td></tr>
+                <tr><td>Height</td><td>5 Feet 9 Inch</td></tr>
+                <tr><td>Education</td><td>12 Pass</td></tr>
+            </table>
+
+            <table>
+                <tr><th colspan="2">Family Details</th></tr>
+                <tr><td>Father</td><td>Harjivanbhai Chaturbhai Varmora</td></tr>
+                <tr><td>Mother</td><td>Shardaben Harjivanbhai Varmora</td></tr>
+                <tr><td>Brothers</td><td>Dipesh Varmora (Married), Rahul Varmora(Divorce)</td></tr>
+            </table>
+
+            <table>
+                <tr><th colspan="2">Business Details</th></tr>
+                <tr><td>Shumangal Marketing</td><td>Dhuva</td></tr>
+                <tr><td>William John's Pizza</td><td>MahendraNagar</td></tr>
+                <tr><td>Shree Umiya Novelty Parotha House</td><td>MahendraNagar & Dhuva</td></tr>
+            </table>
+
+            <table>
+                <tr><th colspan="2">Contact Details</th></tr>
+                <tr><td>Harjivanbhai Varmora (Father)</td><td>98799 96376</td></tr>
+                <tr><td>Dipeshbhai Varmora (Brother)</td><td>9586 343434</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function changePhoto(img) {
+            document.getElementById("mainPhoto").src = img.src;
+        }
+
+        function changeLanguage() {
+            var language = document.getElementById("languageSelect").value;
+            var details = document.getElementById("detailsSection");
+
+            if (language === "gujarati") {
+                details.innerHTML = `
+                    <table>
+                        <tr><th colspan="2">વ્યક્તિગત વિગતો</th></tr>
+                        <tr><td>નામ</td><td>સાગર હરજીવનભાઈ વરમોરા </td></tr>
+                        <tr><td>જન્મ તારીખ</td><td>22 / 05 / 1995</td></tr>
+                        <tr><td>જન્મ સ્થળ</td><td>સાર</td></tr>
+                        <tr><td>ઊંચાઈ</td><td>5 ફૂટ 9 ઇંચ</td></tr>
+                        <tr><td>શિક્ષણ</td><td>12 પાસ</td></tr>
+                    </table>
+
+                    <table>
+                        <tr><th colspan="2">કુટુંબની વિગતો</th></tr>
+                        <tr><td>પિતા</td><td>હરજીવનભાઈ ચતુરભાઈ વરમોરા </td></tr>
+                        <tr><td>માતા</td><td>શારદાબેન હરજીવનભાઈ વરમોરા </td></tr>
+                        <tr><td>ભાઈઓ</td><td>દિપેશ વરમોરા (પરિણીત), રાહુલ વરમોરા (છૂટાછેડા)</td></tr>
+                    </table>
+                    
+                    
+                    <table>
+                <tr><th colspan="2"> વ્યવસાય વિગતો </th></tr>
+                <tr><td> શુમંગલ માર્કેટિંગ </td><td>ઢુંવા </td></tr>
+                <tr><td> વિલિયમ જોન્સ પિઝા </td><td>મહેન્દ્રનગર </td></tr>
+                <tr><td> શ્રી ઉમિયા નોવેલ્ટી પરોઠા હાઉસ </td><td>મહેન્દ્રનગર તથા ઢુંવા </td></tr>
+            </table>
+
+            <table>
+                <tr><th colspan="2"> સંપર્ક વિગતો </th></tr>
+                <tr><td> હરજીવનભાઈ વરમોરા (પિતા શ્રી)</td><td>98799 96376</td></tr>
+                <tr><td> દિપેશભાઈ વરમોરા (મોટા ભાઈ)</td><td>9586 343434</td></tr>
+            </table>
+            
+            
+                `;
+            } else {
+                location.reload();
+            }
+        }
+    </script>
 </body>
 </html>
